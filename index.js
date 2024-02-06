@@ -20,6 +20,21 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/user", (req, res) => {
+  res.status(200).send({
+    data: [
+      {
+        id: 1,
+        name: "user 1",
+      },
+      {
+        id: 2,
+        name: "user 2",
+      },
+    ],
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`server SEDANG BERJALAN DI port: ${PORT}`);
 });
