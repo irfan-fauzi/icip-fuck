@@ -8,11 +8,13 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 app.use(cors());
+app.use(express.json())
 app.get("/", (req, res) => {
   res.status(200).send({
     message: "🧮 🎟 🇦🇫 🧑 ✈ ",
   });
 });
+
 app.use(UserRouter);
 
 app.listen(PORT, () => {
