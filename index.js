@@ -1,39 +1,19 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
+import UserRouter from "./routes/UserRoute.js";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 9000;
 
+app.use(cors());
 app.get("/", (req, res) => {
   res.status(200).send({
-    data: [
-      {
-        id: 1,
-        name: "irfan",
-      },
-      {
-        id: 2,
-        name: "jaka",
-      },
-    ],
+    message: "🧮 🎟 🇦🇫 🧑 ✈ ",
   });
 });
-
-app.get("/user", (req, res) => {
-  res.status(200).send({
-    data: [
-      {
-        id: 1,
-        name: "user 1",
-      },
-      {
-        id: 2,
-        name: "user 2",
-      },
-    ],
-  });
-});
+app.use(UserRouter);
 
 app.listen(PORT, () => {
   console.log(`server SEDANG BERJALAN DI port: ${PORT}`);
