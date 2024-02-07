@@ -2,7 +2,7 @@ import express from "express";
 
 const UserRouter = express.Router();
 
-UserRouter.get("/user", (req, res) => {
+UserRouter.get("/users", (req, res) => {
   res.status(200).send({
     data: [
       {
