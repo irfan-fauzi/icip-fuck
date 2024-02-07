@@ -1,5 +1,4 @@
 /node_modules
 /request.rest
-.env
-/.env
+
 /yarn.lock
