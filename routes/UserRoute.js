@@ -1,20 +1,8 @@
 import express from "express";
+import { getUsers } from "../controller/UserController.js";
 
 const UserRouter = express.Router();
 
-UserRouter.get("/users", (req, res) => {
-  res.status(200).send({
-    data: [
-      {
-        id: 1,
-        name: "user 1",
-      },
-      {
-        id: 2,
-        name: "user 2",
-      },
-    ],
-  });
-});
+UserRouter.get("/users", getUsers);
 
 export default UserRouter;
