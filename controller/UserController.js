@@ -5,7 +5,7 @@ export const getUsers = async (req, res) => {
     const response = await UserModel.findAll();
     res.status(200).json(response);
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 };
 
@@ -15,9 +15,20 @@ export const getUserById = async (req, res) => {
       where: {
         id: req.params.id,
       },
-    })
-    res.status(200).json(response)
+    });
+    res.status(200).json(response);
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
-}
+};
+
+export const createUser = async (req, res) => {
+  try {
+    await UserModel.create(req.body);
+    res.status(201).json({
+      msg: "User created sucess.. 😻",
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
