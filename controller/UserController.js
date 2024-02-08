@@ -44,6 +44,21 @@ export const updateUser = async (req, res) => {
       msg: "update user sucess.. 😇"
     })
   } catch (error) {
-    
+    console.log(error.message);
+  }
+}
+
+export const deleteUser = async (req, res) => {
+  try {
+    await UserModel.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(200).json({
+      msg: "user was deleted 🖐🚯"
+    })
+  } catch (error) {
+    console.log(error.message);
   }
 }
